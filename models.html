@@ -53,14 +53,14 @@
         </div>
         <div class="model-grid">
           <article class="model-card catalog-card" id="seri-3">
-            <a class="model-image image-sedan" href="#test-drive" aria-label="Tanya tentang BMW Seri 3"></a>
+            <a class="model-image image-sedan" href="#test-drive" data-gallery="seri-3" aria-label="Lihat foto BMW Seri 3"></a>
             <div class="model-meta"><span>SEDAN</span><span>BMW 3 SERIES</span></div>
             <h3>BMW Seri 3</h3>
             <p>Sporty, elegan, dan siap untuk setiap hari.</p>
             <a class="card-link" href="#test-drive">Jadwalkan test drive <span aria-hidden="true">→</span></a>
           </article>
           <article class="model-card catalog-card" id="seri-5">
-            <a class="model-image image-seri-5" href="#test-drive" aria-label="Tanya tentang BMW Seri 5"></a>
+            <a class="model-image image-seri-5" href="#test-drive" data-gallery="seri-5" aria-label="Lihat foto BMW Seri 5"></a>
             <div class="model-meta"><span>SEDAN</span><span>BMW 5 SERIES</span></div>
             <h3>BMW Seri 5</h3>
             <p>Kenyamanan modern dengan karakter yang progresif.</p>
@@ -79,14 +79,14 @@
         </div>
         <div class="model-grid">
           <article class="model-card catalog-card" id="x1">
-            <a class="model-image image-x1" href="#test-drive" aria-label="Tanya tentang BMW X1"></a>
+            <a class="model-image image-x1" href="#test-drive" data-gallery="x1" aria-label="Lihat foto BMW X1"></a>
             <div class="model-meta"><span>X SERIES</span><span>BMW X1</span></div>
             <h3>BMW X1</h3>
             <p>Fleksibel untuk kota, nyaman untuk perjalanan jauh.</p>
             <a class="card-link" href="#test-drive">Jadwalkan test drive <span aria-hidden="true">→</span></a>
           </article>
           <article class="model-card catalog-card" id="x7">
-            <a class="model-image image-suv" href="#test-drive" aria-label="Tanya tentang BMW X7"></a>
+            <a class="model-image image-suv" href="#test-drive" data-gallery="x7" aria-label="Lihat foto BMW X7"></a>
             <div class="model-meta"><span>X SERIES</span><span>BMW X7</span></div>
             <h3>BMW X7</h3>
             <p>Kenyamanan premium dengan karakter berani.</p>
@@ -105,14 +105,14 @@
         </div>
         <div class="model-grid">
           <article class="model-card catalog-card" id="m4">
-            <a class="model-image image-m4" href="#test-drive" aria-label="Tanya tentang BMW M4"></a>
+            <a class="model-image image-m4" href="#test-drive" data-gallery="m4" aria-label="Lihat foto BMW M4"></a>
             <div class="model-meta"><span>HIGH-PERFORMANCE COUPÉ</span><span>BMW M4</span></div>
             <h3>BMW M4</h3>
             <p>Performa tinggi dengan karakter motorsport.</p>
             <a class="card-link" href="#test-drive">Jadwalkan test drive <span aria-hidden="true">→</span></a>
           </article>
           <article class="model-card catalog-card" id="m2">
-            <a class="model-image image-m2" href="#test-drive" aria-label="Tanya tentang BMW M2"></a>
+            <a class="model-image image-m2" href="#test-drive" data-gallery="m2" aria-label="Lihat foto BMW M2"></a>
             <div class="model-meta"><span>HIGH-PERFORMANCE COUPÉ</span><span>BMW M2</span></div>
             <h3>BMW M2</h3>
             <p>Coupe kompak dengan performa yang ekspresif.</p>
@@ -145,5 +145,26 @@
       </div>
       <p class="copyright">© 2026 BMW William Palembang. Informasi model dan spesifikasi dapat berubah.</p>
     </footer>
+    <dialog class="model-gallery" aria-labelledby="gallery-title">
+      <div class="gallery-shell">
+        <div class="gallery-header">
+          <div>
+            <p class="eyebrow">GALERI MODEL</p>
+            <h2 id="gallery-title"></h2>
+          </div>
+          <button class="gallery-close" type="button" aria-label="Tutup galeri">×</button>
+        </div>
+        <div class="gallery-stage">
+          <button class="gallery-arrow" type="button" data-direction="-1" aria-label="Foto sebelumnya">←</button>
+          <img class="gallery-main-image" alt="">
+          <button class="gallery-arrow" type="button" data-direction="1" aria-label="Foto berikutnya">→</button>
+        </div>
+        <div class="gallery-footer">
+          <p class="gallery-count" aria-live="polite" aria-atomic="true"></p>
+          <div class="gallery-thumbnails" role="group" aria-label="Pilih foto mobil"></div>
+        </div>
+      </div>
+    </dialog>
+    <script src="model-gallery.js" defer></script>
   </body>
 </html>

@@ -30,11 +30,15 @@ a { color: inherit; text-decoration: none; }
 .topline a span { color: var(--blue); margin-left: 5px; }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   height: 82px;
   padding: 0 7.2%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: var(--paper);
   border-bottom: 1px solid var(--line);
 }
 .brand { display: inline-flex; align-items: center; gap: 12px; }
@@ -140,9 +144,51 @@ h1 em { font-style: normal; font-weight: 700; }
   background-color: #e7e9eb;
   background-position: center;
   background-size: cover;
+  cursor: pointer;
   transition: background-size .25s, filter .25s;
 }
 .model-image:hover { filter: brightness(.92); }
+.model-gallery {
+  width: min(940px, calc(100vw - 32px));
+  max-width: none;
+  max-height: min(90vh, 900px);
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .35);
+}
+.model-gallery::backdrop { background: rgba(10, 15, 21, .78); backdrop-filter: blur(4px); }
+.gallery-shell { display: grid; gap: 18px; padding: 24px; }
+.gallery-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.gallery-header .eyebrow { margin-bottom: 5px; }
+.gallery-header h2 { margin: 0; font-size: clamp(24px, 4vw, 32px); }
+.gallery-close, .gallery-arrow {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+}
+.gallery-close { font-size: 24px; }
+.gallery-stage { min-height: 260px; height: min(55vh, 560px); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.gallery-main-image { width: 100%; height: 100%; min-width: 0; object-fit: contain; }
+.gallery-arrow { background: #f5f6f7; font-size: 20px; }
+.gallery-footer { display: grid; gap: 12px; }
+.gallery-count { margin: 0; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.gallery-thumbnails { display: flex; gap: 9px; overflow-x: auto; padding: 2px 2px 8px; }
+.gallery-thumbnail { width: 84px; height: 62px; flex: 0 0 auto; padding: 0; overflow: hidden; border: 2px solid transparent; border-radius: 3px; background: #e7e9eb; cursor: pointer; }
+.gallery-thumbnail[aria-pressed="true"] { border-color: var(--blue); }
+.gallery-thumbnail img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.gallery-close:focus-visible, .gallery-arrow:focus-visible, .gallery-thumbnail:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 .image-sedan { background-image: url("Images/SERI%203/bmw_palembang_1793435269363.jpeg"); }
 .image-suv { background-image: url("Images/X7/bmw_palembang_1793435347164.jpeg"); }
 .image-m4 { background-image: url("Images/M4%20G82/bmw_palembang_1793435435982.jpeg"); }
@@ -229,8 +275,6 @@ h1 em { font-style: normal; font-weight: 700; }
 
 @media (max-width: 760px) {
   .topline { padding: 0 5%; }
-  .site-header { height: 70px; padding: 0 5%; }
-  .main-nav { display: none; }
   .header-cta { font-size: 10px; }
   .hero { min-height: 530px; }
   .hero-slide { background-position: 58% center; }
@@ -265,12 +309,43 @@ h1 em { font-style: normal; font-weight: 700; }
   .copyright { grid-column: 1 / -1; justify-self: start; text-align: left; }
 }
 
+@media (max-width: 900px) {
+  .site-header {
+    height: auto;
+    min-height: 70px;
+    padding: 14px 5%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand cta"
+      "nav nav";
+    gap: 12px 20px;
+  }
+  .brand { grid-area: brand; min-width: 0; }
+  .main-nav {
+    grid-area: nav;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px 24px;
+    width: 100%;
+    margin: 0;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+  .header-cta { grid-area: cta; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
 
 @media (max-width: 420px) {
+  .gallery-shell { gap: 12px; padding: 16px; }
+  .gallery-stage { height: 48vh; min-height: 200px; gap: 7px; }
+  .gallery-arrow, .gallery-close { width: 34px; height: 34px; }
+  .gallery-thumbnail { width: 68px; height: 52px; }
   .brand { gap: 8px; }
   .roundel { width: 36px; height: 36px; }
   .brand-name { font-size: 13px; }

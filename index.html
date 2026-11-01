@@ -68,21 +68,21 @@
         </div>
         <div class="model-grid">
           <article class="model-card">
-            <a class="model-image image-sedan" href="models.html#seri-3" aria-label="Cari tahu tentang BMW Seri 3"></a>
+            <a class="model-image image-sedan" href="models.html#seri-3" data-gallery="seri-3" aria-label="Lihat foto BMW Seri 3"></a>
             <div class="model-meta"><span>SERIES</span><span>01 / 03</span></div>
             <h3>BMW Seri 3</h3>
             <p>Sporty, elegan, dan siap untuk setiap hari.</p>
             <a class="card-link" href="models.html#seri-3">Temukan lebih lanjut <span aria-hidden="true">→</span></a>
           </article>
           <article class="model-card">
-            <a class="model-image image-suv" href="models.html#x7" aria-label="Cari tahu tentang BMW X7"></a>
+            <a class="model-image image-suv" href="models.html#x7" data-gallery="x7" aria-label="Lihat foto BMW X7"></a>
             <div class="model-meta"><span>X SERIES</span><span>02 / 03</span></div>
             <h3>BMW X7</h3>
             <p>Kenyamanan premium dengan karakter berani.</p>
             <a class="card-link" href="models.html#x7">Temukan lebih lanjut <span aria-hidden="true">→</span></a>
           </article>
           <article class="model-card">
-            <a class="model-image image-m4" href="models.html#m4" aria-label="Cari tahu tentang BMW M4"></a>
+            <a class="model-image image-m4" href="models.html#m4" data-gallery="m4" aria-label="Lihat foto BMW M4"></a>
             <div class="model-meta"><span>M SERIES</span><span>BMW M4</span></div>
             <h3>BMW M4</h3>
             <p>Performa tinggi dengan karakter motorsport.</p>
@@ -125,6 +125,27 @@
       </div>
       <p class="copyright">© 2026 BMW Dealer. Informasi model dan spesifikasi dapat berubah.</p>
     </footer>
+    <dialog class="model-gallery" aria-labelledby="gallery-title">
+      <div class="gallery-shell">
+        <div class="gallery-header">
+          <div>
+            <p class="eyebrow">GALERI MODEL</p>
+            <h2 id="gallery-title"></h2>
+          </div>
+          <button class="gallery-close" type="button" aria-label="Tutup galeri">×</button>
+        </div>
+        <div class="gallery-stage">
+          <button class="gallery-arrow" type="button" data-direction="-1" aria-label="Foto sebelumnya">←</button>
+          <img class="gallery-main-image" alt="">
+          <button class="gallery-arrow" type="button" data-direction="1" aria-label="Foto berikutnya">→</button>
+        </div>
+        <div class="gallery-footer">
+          <p class="gallery-count" aria-live="polite" aria-atomic="true"></p>
+          <div class="gallery-thumbnails" role="group" aria-label="Pilih foto mobil"></div>
+        </div>
+      </div>
+    </dialog>
     <script src="hero-carousel.js" defer></script>
+    <script src="model-gallery.js" defer></script>
   </body>
 </html>
